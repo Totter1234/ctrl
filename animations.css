@@ -1,0 +1,62 @@
+/* ─── Fade Up (scroll reveal) ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Ticker Loop ─── */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker__track {
+  animation: ticker-scroll 28s linear infinite;
+}
+
+/* ─── Scroll Indicator Pulse ─── */
+@keyframes scroll-pulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.4);
+    opacity: 0.5;
+  }
+}
+
+.scroll-indicator__line {
+  animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+/* ─── Hero Image Zoom on Hover ─── */
+.hero__image {
+  transition: transform 8s ease;
+}
+
+.hero__image-wrap:hover .hero__image {
+  transform: scale(1.06);
+}
+
+/* ─── Section Card Gold Line ─── */
+.section-card::before {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.section-card:hover::before {
+  transform: scaleX(1);
+}
